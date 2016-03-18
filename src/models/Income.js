@@ -6,13 +6,14 @@
 
 const service = __service;
 
-import Currency from './Currency';
-
 export default class Income extends service.Model {
 
   static label = '收支记录';
-  static defaultColumns = 'title';
+  static defaultColumns = 'title,user,currency,amount,balance,createdAt';
   static defaultSort = '-createdAt';
+  static nocreate = true;
+  static noedit = true;
+  static noremove = true;
 
   static fields = {
     title: {
@@ -23,15 +24,17 @@ export default class Income extends service.Model {
     user: {
       label: '用户',
       type: 'relationship',
-      ref: 'User',
+      ref: 'user.User',
       index: true
     },
     currency: {
       label: '货币',
-      type: Currency
+      type: 'select',
+      options: service.currencies,
+      default: service.defaultCurrency.value
     },
     amount: {
-      label: '数量',
+      label: '金额',
       type: Number,
       default: 0
     },
