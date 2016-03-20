@@ -77,5 +77,10 @@ export default class BalanceService extends alaska.Service {
   get defaultCurrency() {
     return this._defaultCurrency;
   }
+
+  async settings(user, settings) {
+    settings.currencies = this._currenciesMap;
+    settings.defaultCurrency = this._defaultCurrency;
+  }
 }
 

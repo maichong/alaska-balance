@@ -1,6 +1,6 @@
 {
   "name": "alaska-balance",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Alaska balance service",
   "main": "lib/alaska-balance.js",
   "scripts": {
@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/maichong/alaska-balance#readme",
   "peerDependencies": {
-    "alaska": "^0.2.0",
-    "alaska-user": "^0.2.1"
+    "alaska": "^0.3.0",
+    "alaska-user": "^0.3.0"
   },
   "devDependencies": {
     "babel-plugin-syntax-async-functions": "^6.5.0",
@@ -37,6 +37,6 @@
     "rimraf": "^2.5.2"
   },
   "dependencies": {
-    "alaska-field-select": "^0.2.0"
+    "alaska-field-select": "^0.3.0"
   }
 }
