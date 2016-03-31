@@ -4,11 +4,9 @@
  * @author Liang <liang@maichong.it>
  */
 
-const service = __service;
-
 export default class Income extends service.Model {
 
-  static label = '收支记录';
+  static label = 'Income Record';
   static defaultColumns = 'title,user,currency,amount,balance,createdAt';
   static defaultSort = '-createdAt';
   static nocreate = true;
@@ -17,34 +15,34 @@ export default class Income extends service.Model {
 
   static fields = {
     title: {
-      label: '标题',
+      label: 'Title',
       type: String,
       require: true
     },
     user: {
-      label: '用户',
+      label: 'User',
       type: 'relationship',
       ref: 'user.User',
       index: true
     },
     currency: {
-      label: '货币',
+      label: 'Currency',
       type: 'select',
       options: service.currencies,
       default: service.defaultCurrency.value
     },
     amount: {
-      label: '金额',
+      label: 'Amount',
       type: Number,
       default: 0
     },
     balance: {
-      label: '余额',
+      label: 'Balance',
       type: Number,
       default: 0
     },
     createdAt: {
-      label: '添加时间',
+      label: 'Created At',
       type: Date
     }
   };

@@ -1,6 +1,6 @@
 {
   "name": "alaska-balance",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Alaska balance service",
   "main": "lib/alaska-balance.js",
   "scripts": {
@@ -24,15 +24,15 @@
   },
   "homepage": "https://github.com/maichong/alaska-balance#readme",
   "peerDependencies": {
-    "alaska": "^0.5.2",
-    "alaska-user": "^0.5.1"
+    "alaska": "^0.6.0",
+    "alaska-user": "^0.6.0"
   },
   "devDependencies": {
     "babel-plugin-syntax-async-functions": "^6.5.0",
     "babel-plugin-syntax-class-properties": "^6.5.0",
     "babel-plugin-transform-class-properties": "^6.6.0",
     "babel-plugin-transform-es2015-destructuring": "^6.6.5",
-    "babel-plugin-transform-es2015-parameters": "^6.6.5",
+    "babel-plugin-transform-es2015-parameters": "^6.7.0",
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
     "rimraf": "^2.5.2"
   },
