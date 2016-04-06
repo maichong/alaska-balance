@@ -6,6 +6,7 @@
 
 export default {
   prefix: '/balance',
+  controllers: false,
   services: [
     { id: 'alaska-user', alias: 'user' }
   ],
