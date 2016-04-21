@@ -21,28 +21,12 @@ export default class BalanceService extends alaska.Service {
 
   postInit() {
     let service = this;
-    let currencies = this.config('currencies');
-    if (!currencies || !currencies.length) {
-      throw new Error('alaska-balance service require currency settings.');
-    }
-    this._currencies = currencies;
-    let currenciesMap = this._currenciesMap = {};
-    currencies.forEach(c => {
-      currenciesMap[c.value] = c;
-      if (c.default) {
-        this._defaultCurrency = c;
-      }
-    });
-    if (!this._defaultCurrency) {
-      throw new Error('Default currency not specified.');
-    }
-
-    let userService = this.service('user');
-    userService.pre('registerModel', function (Model) {
+    let USER = this.service('user');
+    USER.pre('registerModel', function (Model) {
       if (Model.name !== 'User') {
         return;
       }
-      currencies.forEach(c => {
+      service._currencies.forEach(c => {
         Model.underscoreMethod(c.value, 'income', async function (amount, title, type) {
           let user = this;
           let balance = round(user.get(c.value) + amount, c.precision);
@@ -69,6 +53,24 @@ export default class BalanceService extends alaska.Service {
         };
       });
     });
+  }
+
+  postLoadConfig() {
+    let currencies = this.config('currencies');
+    if (!currencies || !currencies.length) {
+      throw new Error('alaska-balance service require currency settings.');
+    }
+    this._currencies = currencies;
+    let currenciesMap = this._currenciesMap = {};
+    currencies.forEach(c => {
+      currenciesMap[c.value] = c;
+      if (c.default) {
+        this._defaultCurrency = c;
+      }
+    });
+    if (!this._defaultCurrency) {
+      throw new Error('Default currency not specified.');
+    }
   }
 
   get currencies() {
