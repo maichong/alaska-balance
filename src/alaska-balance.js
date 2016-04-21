@@ -43,12 +43,13 @@ export default class BalanceService extends alaska.Service {
         return;
       }
       currencies.forEach(c => {
-        Model.underscoreMethod(c.value, 'income', async function (amount, title) {
+        Model.underscoreMethod(c.value, 'income', async function (amount, title, type) {
           let user = this;
           let balance = round(user.get(c.value) + amount, c.precision);
           user.set(c.value, balance);
           let Income = service.model('Income');
           let imcome = new Income({
+            type,
             title,
             amount,
             balance,
@@ -72,6 +73,10 @@ export default class BalanceService extends alaska.Service {
 
   get currencies() {
     return this._currencies;
+  }
+
+  get currenciesMap() {
+    return this._currenciesMap;
   }
 
   get defaultCurrency() {

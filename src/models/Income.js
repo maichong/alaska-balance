@@ -7,8 +7,9 @@
 export default class Income extends service.Model {
 
   static label = 'Income Record';
-  static defaultColumns = 'title,user,currency,amount,balance,createdAt';
+  static defaultColumns = 'title,user,type,currency,amount,balance,createdAt';
   static defaultSort = '-createdAt';
+  static searchFields = 'title';
   static nocreate = true;
   static noedit = true;
   static noremove = true;
@@ -24,6 +25,15 @@ export default class Income extends service.Model {
       type: 'relationship',
       ref: 'user.User',
       index: true
+    },
+    type: {
+      label: 'Type',
+      type: 'select',
+      default: '',
+      options: [{
+        label: 'Default',
+        value: ''
+      }]
     },
     currency: {
       label: 'Currency',
