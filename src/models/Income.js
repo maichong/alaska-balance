@@ -7,7 +7,7 @@
 export default class Income extends service.Model {
 
   static label = 'Income Record';
-  static defaultColumns = 'title,user,type,currency,amount,balance,createdAt';
+  static defaultColumns = 'title user type currency amount balance createdAt';
   static defaultSort = '-createdAt';
   static searchFields = 'title';
   static nocreate = true;

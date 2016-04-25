@@ -4,7 +4,6 @@
  * @author Liang <liang@maichong.it>
  */
 
-
 import alaska from 'alaska';
 import { round } from 'lodash';
 
@@ -23,9 +22,7 @@ export default class BalanceService extends alaska.Service {
     let service = this;
     let USER = this.service('user');
     USER.pre('registerModel', function (Model) {
-      if (Model.name !== 'User') {
-        return;
-      }
+      if (Model.name !== 'User') return;
       service._currencies.forEach(c => {
         Model.underscoreMethod(c.value, 'income', async function (amount, title, type) {
           let user = this;
@@ -43,9 +40,7 @@ export default class BalanceService extends alaska.Service {
           await imcome.save();
           await user.save();
         });
-        if (Model.fields[c.value]) {
-          return;
-        }
+        if (Model.fields[c.value]) return;
         Model.fields[c.value] = {
           label: c.label,
           type: Number,
