@@ -13,8 +13,8 @@ import { round } from 'lodash';
 export default class BalanceService extends alaska.Service {
   constructor(options, alaska) {
     options = options || {};
-    options.id = 'alaska-balance';
-    options.dir = __dirname;
+    options.dir = options.dir || __dirname;
+    options.id = options.id || 'alaska-balance';
     super(options, alaska);
   }
 
@@ -44,7 +44,8 @@ export default class BalanceService extends alaska.Service {
         Model.fields[c.value] = {
           label: c.label,
           type: Number,
-          default: 0
+          default: 0,
+          addonAfter: c.unit
         };
       });
     });

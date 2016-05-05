@@ -10,5 +10,6 @@ export default {
   Balance: '余额',
   Type: '类型',
   Default: '默认',
-  'Income Record': '收支记录'
+  'Income Record': '收支记录',
+  Credit: '积分'
 };
