@@ -1,6 +1,6 @@
 {
   "name": "alaska-balance",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Alaska balance service",
   "keywords": [
     "alaska",
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/maichong/alaska-balance#readme",
   "peerDependencies": {
-    "alaska": "^0.9.7",
+    "alaska": "^0.9.8",
     "alaska-user": "^0.9.3"
   },
   "dependencies": {

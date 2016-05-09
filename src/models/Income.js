@@ -14,6 +14,10 @@ export default class Income extends service.Model {
   static noedit = true;
   static noremove = true;
 
+  static api = {
+    list: 3
+  };
+
   static fields = {
     title: {
       label: 'Title',
