@@ -35,8 +35,14 @@ export default class Income extends service.Model {
       type: 'select',
       default: '',
       options: [{
-        label: 'Default',
+        label: 'Unknown',
         value: ''
+      }, {
+        label: 'Withdraw',
+        value: 'withdraw'
+      }, {
+        label: 'Withdraw Rejected',
+        value: 'withdraw_rejected'
       }]
     },
     currency: {
