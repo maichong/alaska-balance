@@ -26,7 +26,10 @@ export default class BalanceService extends alaska.Service {
       service._currencies.forEach(c => {
         Model.underscoreMethod(c.value, 'income', async function (amount, title, type) {
           let user = this;
-          let balance = round(user.get(c.value) + amount, c.precision);
+          let balance = (user.get(c.value) + amount) || 0;
+          if (c.precision !== undefined) {
+            balance = round(balance, c.precision);
+          }
           user.set(c.value, balance);
           let Income = service.model('Income');
           let imcome = new Income({

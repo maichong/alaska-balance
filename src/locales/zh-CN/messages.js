@@ -24,5 +24,6 @@ export default {
   Accepted: '已接受',
   Rejected: '已拒绝',
   'Withdraw Rejected': '提现拒绝',
-  'Insufficient balance': '余额不足'
+  'Insufficient balance': '余额不足',
+  state: '状态'
 };
