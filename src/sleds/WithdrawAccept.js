@@ -4,7 +4,9 @@
  * @author Liang <liang@maichong.it>
  */
 
-export default class WithdrawAccept extends service.Sled {
+import alaska from 'alaska';
+
+export default class WithdrawAccept extends alaska.Sled {
   async exec(data) {
     let withdraw = data.withdraw;
     if (withdraw.state === 0) {

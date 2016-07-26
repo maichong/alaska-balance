@@ -4,13 +4,14 @@
  * @author Liang <liang@maichong.it>
  */
 
+import _ from 'lodash';
 import alaska from 'alaska';
-import { round } from 'lodash';
+import USER from 'alaska-user';
 
 /**
  * @class BalanceService
  */
-export default class BalanceService extends alaska.Service {
+class BalanceService extends alaska.Service {
   constructor(options, alaska) {
     options = options || {};
     options.dir = options.dir || __dirname;
@@ -20,7 +21,6 @@ export default class BalanceService extends alaska.Service {
 
   postInit() {
     let service = this;
-    let USER = this.service('user');
     USER.pre('registerModel', function (Model) {
       if (Model.name !== 'User') return;
       service._currencies.forEach(c => {
@@ -28,7 +28,7 @@ export default class BalanceService extends alaska.Service {
           let user = this;
           let balance = (user.get(c.value) + amount) || 0;
           if (c.precision !== undefined) {
-            balance = round(balance, c.precision);
+            balance = _.round(balance, c.precision);
           }
           user.set(c.value, balance);
           let Income = service.model('Income');
@@ -90,3 +90,4 @@ export default class BalanceService extends alaska.Service {
   }
 }
 
+export default new BalanceService();

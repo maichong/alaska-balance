@@ -4,9 +4,13 @@
  * @author Liang <liang@maichong.it>
  */
 
-export default class Income extends service.Model {
+import alaska from 'alaska';
+import service from '../';
+
+export default class Income extends alaska.Model {
 
   static label = 'Income Record';
+  static icon = 'usd';
   static defaultColumns = 'title user type currency amount balance createdAt';
   static defaultSort = '-createdAt';
   static searchFields = 'title';
@@ -27,7 +31,7 @@ export default class Income extends service.Model {
     user: {
       label: 'User',
       type: 'relationship',
-      ref: 'user.User',
+      ref: 'alaska-user.User',
       index: true
     },
     type: {

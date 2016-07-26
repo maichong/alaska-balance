@@ -1,16 +1,16 @@
 {
   "name": "alaska-balance",
-  "version": "0.9.5",
+  "version": "0.10.0",
   "description": "Alaska balance service",
   "keywords": [
     "alaska",
     "alaska-service"
   ],
-  "main": "lib/alaska-balance.js",
+  "main": "index.js",
   "scripts": {
-    "build": "babel ./src --out-dir ./lib",
-    "watch": "babel ./src --out-dir ./lib -w",
-    "prebuild": "rimraf lib",
+    "build": "babel ./src --out-dir ./",
+    "watch": "babel ./src --out-dir ./ -w",
+    "prebuild": "rimraf lib api controllers config locales middlewares models sleds views",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -28,10 +28,10 @@
   },
   "homepage": "https://github.com/maichong/alaska-balance#readme",
   "peerDependencies": {
-    "alaska": "^0.9.15",
-    "alaska-user": "^0.9.4"
+    "alaska": "^0.10.0",
+    "alaska-user": "^0.10.0"
   },
   "dependencies": {
-    "alaska-field-select": "^0.9.1"
+    "alaska-field-select": "^0.10.0"
   }
 }

@@ -4,9 +4,13 @@
  * @author Liang <liang@maichong.it>
  */
 
-export default class Withdraw extends service.Model {
+import alaska from 'alaska';
+import service from '../';
+
+export default class Withdraw extends alaska.Model {
 
   static label = 'Withdraw';
+  static icon = 'share-square';
   static title = 'title';
   static defaultColumns = 'title user currency amount state createdAt';
   static defaultSort = '-createdAt';
@@ -47,7 +51,7 @@ export default class Withdraw extends service.Model {
     },
     user: {
       label: 'User',
-      ref: 'user.User',
+      ref: 'alaska-user.User',
       required: true,
       static: true
     },

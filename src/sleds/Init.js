@@ -4,9 +4,10 @@
  * @author Liang <liang@maichong.it>
  */
 
-const USER = service.service('user');
+import alaska from 'alaska';
+import USER from 'alaska-user';
 
-export default class Init extends service.Sled {
+export default class Init extends alaska.Sled {
   exec() {
     USER.run('RegisterAbility', {
       id: 'admin.alaska-balance.withdraw.accept',

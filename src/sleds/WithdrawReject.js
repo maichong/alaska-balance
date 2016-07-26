@@ -4,9 +4,10 @@
  * @author Liang <liang@maichong.it>
  */
 
-const User = service.model('user.User');
+import alaska from 'alaska';
+import User from 'alaska-user/models/User';
 
-export default class WithdrawReject extends service.Sled {
+export default class WithdrawReject extends alaska.Sled {
   async exec(data) {
     let withdraw = data.withdraw;
     if (withdraw.state === 0) {

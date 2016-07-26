@@ -4,7 +4,9 @@
  * @author Liang <liang@maichong.it>
  */
 
-export default class Withdraw extends service.Sled {
+import alaska from 'alaska';
+
+export default class Withdraw extends alaska.Sled {
 
   /**
    * @param data
