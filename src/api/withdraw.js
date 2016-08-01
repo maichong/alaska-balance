@@ -4,6 +4,8 @@
  * @author Liang <liang@maichong.it>
  */
 
+import service from '../';
+
 export async function create(ctx) {
   let user = ctx.user || service.error(403);
   let body = ctx.state.body || ctx.request.body;
