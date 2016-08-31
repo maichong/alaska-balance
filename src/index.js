@@ -12,11 +12,11 @@ import USER from 'alaska-user';
  * @class BalanceService
  */
 class BalanceService extends alaska.Service {
-  constructor(options, alaska) {
+  constructor(options) {
     options = options || {};
     options.dir = options.dir || __dirname;
     options.id = options.id || 'alaska-balance';
-    super(options, alaska);
+    super(options);
   }
 
   postInit() {
@@ -84,7 +84,7 @@ class BalanceService extends alaska.Service {
     return this._defaultCurrency;
   }
 
-  async settings(user, settings) {
+  async settings(ctx, user, settings) {
     settings.currencies = this._currenciesMap;
     settings.defaultCurrency = this._defaultCurrency;
   }

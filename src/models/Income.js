@@ -32,7 +32,8 @@ export default class Income extends alaska.Model {
       label: 'User',
       type: 'relationship',
       ref: 'alaska-user.User',
-      index: true
+      index: true,
+      required: true
     },
     type: {
       label: 'Type',

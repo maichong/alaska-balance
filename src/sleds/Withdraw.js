@@ -5,6 +5,7 @@
  */
 
 import alaska from 'alaska';
+import service from '../';
 
 export default class Withdraw extends alaska.Sled {
 
